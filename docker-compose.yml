@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13.4-buster
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: student
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    restart: "no"
+
+volumes:
+  postgres:
